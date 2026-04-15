@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Секретное письмо 💌</title>
+
+    <style>
+        body {
+            background: pink;
+            text-align: center;
+            font-family: Arial;
+            padding-top: 50px;
+        }
+
+        img {
+            width: 200px;
+            margin: 10px;
+            border-radius: 10px;
+        }
+
+        #content {
+            display: none;
+        }
+
+        #gallery {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- старт -->
+<div id="start">
+    <h1>💌 У меня есть для тебя секретное письмо</h1>
+    <img src="котик.jpg">
+    <br>
+<button id="btn" onclick="nextStep()">Открыть</button>
+</div>
+
+<!-- основной контент -->
+<div id="content">
+    <h2 id="text"></h2>
+    <img id="mainImage" src="">
+    <br>
+<button id="nbtn" onclick="nextStep()">Дальше</button>
+    <div id="gallery">
+        <img src="1.jpg">
+        <img src="2.jpg">
+        <img src="3.jpg">
+        <img src="4.jpg">
+        <img src="5.jpg">
+        <img src="6.jpg">
+        <img src="7.jpg">
+        <img src="8.jpg">
+        <img src="9.jpg">
+        <img src="10.jpg">
+        <img src="11.jpg">
+        <img src="12.jpg">
+    </div>
+</div>
+
+<script>
+
+// шаги
+let step = 0;
+
+function nextStep() {
+
+    step++;
+
+    // шаг 1
+    if (step === 1) {
+        document.getElementById("start").style.display = "none";
+        document.getElementById("content").style.display = "block";
+
+        document.getElementById("text").innerText = "Я хочу тебе сказать...";
+        document.getElementById("mainImage").src = "котик2.jpg";
+    }
+
+    // шаг 2
+    if (step === 2) {
+        document.getElementById("text").innerText = "ты самый красивый котик 😺";
+        document.getElementById("mainImage").src = "котик3.jpg";
+    }
+
+    // шаг 3
+    if (step === 3) {
+        document.getElementById("text").innerText = "";
+        document.getElementById("mainImage").style.display = "none";
+
+        document.getElementById("gallery").style.display = "block";
+
+        // 👉 УБИРАЕМ КНОПКУ ПОСЛЕ ФИНАЛА
+        document.getElementById("nbtn").style.display = "none";
+    }
+}
+
+</script>
+
+</body>
+</html>
